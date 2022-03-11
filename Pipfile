@@ -4,7 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-spyder-kernels = "*"
+pandas = "==1.3.4"
+numpy = "==1.21.4"
+matplotlib = "==3.5"
 
 [dev-packages]
 
