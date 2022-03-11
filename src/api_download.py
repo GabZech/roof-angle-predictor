@@ -5,9 +5,11 @@ import pandas as pd
 #sys.path.append('./ignore/') # append path to current python module
 from creds import sub_key
 
+#df = pd.DataFrame()
+#df.to_csv("hamburg_data.csv", index = False)
 
 df = pd.read_csv("hamburg_data.csv")
-page = 3505
+page = 3546
 # make sure pages between 2400-2700 are in the dataset
 
 while True:
