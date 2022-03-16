@@ -1,16 +1,15 @@
 ########### Python 3.2 #############
 import urllib.request
 import pandas as pd
-#import sys
-#sys.path.append('./ignore/') # append path to current python module
 from creds import sub_key
 
-#df = pd.DataFrame()
-#df.to_csv("hamburg_data.csv", index = False)
 
-df = pd.read_csv("hamburg_data.csv")
-page = 3546
-# make sure pages between 2400-2700 are in the dataset
+page = 8500 # set to the same number as the last backup file
+
+df = pd.read_csv(f"./ignore/backup/hamburg_data_{page}.csv")
+#df = pd.DataFrame() # use this instead if no backup is available
+
+page = page + 1
 
 while True:
     print(f"PageNumber = {str(page)}")
@@ -35,7 +34,6 @@ while True:
         #print(data)
         
         df = df.append(data, ignore_index=True)
-        df.to_csv("hamburg_data.csv", index = False)
         page += 1 
         
         if page in list(range(0, 40001, 500)):
@@ -46,3 +44,6 @@ while True:
         print(e)
         print("Error reached, exiting loop")
         break
+
+
+
