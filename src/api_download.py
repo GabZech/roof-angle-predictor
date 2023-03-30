@@ -4,7 +4,7 @@ import pandas as pd
 from creds import sub_key
 
 
-page = 8500 # set to the same number as the last backup file
+page = 13000 # set to the same number as the last backup file
 
 df = pd.read_csv(f"./ignore/backup/hamburg_data_{page}.csv")
 #df = pd.DataFrame() # use this instead if no backup is available
@@ -39,11 +39,12 @@ while True:
         if page in list(range(0, 40001, 500)):
             filepath = f"./ignore/backup/hamburg_data_{str(page)}.csv"
             df.to_csv(filepath, index = False)
+            
+        if page == 20000:
+            print(str(page) + " page reached, stopping script")
+            break
 
     except Exception as e:
         print(e)
         print("Error reached, exiting loop")
         break
-
-
-
